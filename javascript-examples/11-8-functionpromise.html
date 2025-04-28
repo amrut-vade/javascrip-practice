@@ -1,0 +1,43 @@
+
+
+<script>
+
+ var FetchData = new Promise(function(resolve,reject){
+    var url = prompt("enter url");
+
+    if(url==="https://fakestore"){
+        resolve([{Name:"Tv", Price:45000},{Name:"Mobile", Price:12344}]);
+    }else{
+        reject("Invalid : 404 not found");
+    }
+
+
+ });
+
+    var now = new Date();
+
+ FetchData
+ 
+   .then(function(response){
+    console.log(response);
+   })
+   .then(function(){
+    console.log(`your request Processed success fully.${now.toLocaleTimeString()}`);
+   })
+   .then(function(){
+       console.log(`response renederdn in json format.${now.toLocaleTimeString()}`)
+   })
+   .catch(function(error){
+    console.log(error);
+   })
+   .finally(function(){
+    console.log("Program ends");
+   })
+
+
+
+
+
+
+
+</script>

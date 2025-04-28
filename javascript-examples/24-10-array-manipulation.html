@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+    <script>
+
+        //  function addMovie(){
+
+        //      var addMovie =  document.getElementById("addMovie").value;
+
+
+        //      var dropdown =  document.getElementById("lstMovie");
+        //          option  = document.createElement("option");
+           
+        //      option.text  = addMovie;
+        //      option.value = addMovie;
+        //      dropdown.appendChild(option);
+
+        //       var Asending =  document.getElementById("asending");
+        //       var dsending =  document.getElementById("desending");
+                     
+                 
+
+        //  }
+
+             movies = ["devara", "chava" , "kfg"];
+                
+               function bodyload(){
+                 document.getElementById("lstMovie").innerHTML ="";
+                   movies.map(function(movie){
+                       var option = document.createElement("option")
+                        option.text =movie;
+                        option.value =movie;
+                        document.getElementById("lstMovie").appendChild(option);
+                   })
+                  
+               }
+
+               
+              
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+</head>
+<body class="container-fluid" onload="bodyload()">
+    
+    <div class="mt-3 w-25">
+       
+          <label class="form-label fw-bold">Add New Movie</label>
+         <div class="input-group">
+           <input type="text" name="Movie" id="addMovie" class="form-control">
+           <button onclick="addMovie()" class="btn btn-primary bi bi-file">Add Movie</button>
+         </div>
+    </div>
+
+      <div class="mt-4 w-25">
+
+
+          <div class="my-2">
+              <button id="desending" class="btn btn-success bi bi-sort-alpha-down"></button>
+              <button id="asending"   class="btn btn-success bi bi-sort-alpha-up"></button>
+          </div>
+        <label id="lblcount"></label>
+
+         <div>
+              <select class="form-select" id="lstMovie" size="3">
+
+              </select>
+         </div>
+             <div class="mt-2">
+                 <div class="btn-group">
+                    <button class="btn btn-danger bi bi-trash">Delete Movie</button>
+                    <button class="btn btn-outline-danger bi bi-trash-fill">Clear All</button>
+                    <button class="btn btn-warning bi bi-pen">Edit Movie</button>
+                    
+                 </div>
+             </div>
+      </div>
+
+
+</body>
+</html>

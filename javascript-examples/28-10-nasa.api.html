@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    
+   <script>
+ 
+         function bodyload(){
+
+            fetch()
+            .then(function (response){
+                return response.json();
+            })
+             .then(function (MarsObj){
+                MarshObj.photos.map(function (photo){
+                   var tr =document.createElement("tr");
+                   var tdId =document.createElement("td");
+                   var tdIdImage =document.createElement("td");
+                   var tdIdCamera =document.createElement("td");
+                   var tdIdRover =document.createElement("td");
+                     
+
+                     tdId.innerHTML = photo.id;
+                     tdIdImage.innerHTML=`
+                     <a href=${photo.img_src} target="_blank" ><img src=${photo.img_src} width="200" height="200">`;
+                     tdIdCamera.innerHTML = photo.camera.full_name;
+                     tdIdRover.innerHTML = photo.rover.name;
+
+                     tr.appendChild(tdId);
+                     tr.appendChild(tdIdImage);
+                     tr.appendChild(tdIdCamera);
+                     tr.appendChild(tdIdRover);
+
+                     document.querySelector("tbody").appendChild(tr);
+
+                })
+             })
+         }
+
+   </script>
+
+
+</head>
+<body class="container-fluid" onload="bodyload()">
+      <h2>Mars Rover Photos</h2>
+
+       <table class="table table-hover">
+          <thead>
+              <tr>
+                 <th>Photo ID</th>
+                 <th class="bi bi-eye-fill">Preview</th>
+                 <th class="bi bi-camera">Camera</th>
+                 <th class="bi bi-eye-fill">Rover</th>
+
+              </tr>
+          </thead>
+           
+
+       </table>
+
+
+
+
+
+
+
+
+</body>
+</html>

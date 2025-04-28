@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    
+    
+
+ <script>
+     
+     function bodyLoad(){
+        var products = [];
+
+           fetch("../data/product.json")
+           .then(function(response){
+
+            return response.json();
+
+           })
+           .then(function (product){
+              product.map(function(product){
+                var div = document.createElement("div");
+                    div.className = "card p-2 mt-2";
+                    div.style.width ="200px";
+                    div.innerHTML =`
+                      <img class="card-img-top" src=${product.image} heigth="250">
+                        <div class="card-header mt-3">  
+                               ${product.title}
+                            </div>    
+                           <div class="card-body mt-2">  
+                               ${product.price}
+                            </div>
+                    `;
+                 document.querySelector("main").appendChild(div);              
+                })
+           })
+           .catch(function(error){
+              console.log(error);
+
+           })
+            .finally(function(){
+                console.log("fetch end")
+            })
+     }
+
+ </script>
+
+</head>
+<body onload="bodyLoad()" class="container-fluid">
+     <main class="d-flex">
+
+
+     </main>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer carousal</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+   
+       <style>
+          @keyframes slide{
+
+            from{
+                transform: translateX(110%);
+            }
+            to{
+                transform: translateX(0%); 
+            }
+          }
+
+          img{
+            animation-name:Slide;
+            animation-duration: 5s;
+          }
+
+       </style>
+
+
+
+
+   <script>
+
+      function LoadProduct(id){
+         
+          fetch(`https://fakestoreapi.com/products/${id}`)
+          .then(function(response){
+             return response.json();
+          })
+          .then(function(product){
+            document.getElementById("lblTitle").innerHTML=product.title;
+            document.getElementById("imagProduct").src=product.image;
+            document.getElementById("lblPrice").innerHTML= "$"+product.price;
+          })
+      }
+
+      function LoadProduct(){
+          coun++;
+          fetch(`https://fakestoreapi.com/products/${count}`)
+          .then(function(response){
+             return response.json();
+          })
+          .then(function(product){
+            document.getElementById("lblTitle").innerHTML=product.title;
+            document.getElementById("imagProduct").src=product.image;
+            document.getElementById("lblPrice").innerHTML= "$"+product.price;
+          })
+      }
+
+
+
+
+
+
+        var count=1;
+        function NextClick(){
+            count++;
+            LoadProduct(count);
+        }
+
+        function PrevClick(){
+            count--;
+            LoadProduct(count);
+        }
+
+        
+      function LoadProductAuto(){
+          coun++;
+          fetch(`https://fakestoreapi.com/products/${count}`)
+          .then(function(response){
+             return response.json();
+          })
+          .then(function(product){
+            document.getElementById("lblTitle").innerHTML=product.title;
+            document.getElementById("imagProduct").src=product.image;
+            document.getElementById("lblPrice").innerHTML= "$"+product.price;
+            document.getElementById("lblPrice").innerHTML=value;
+          })
+      }
+
+      var thread;
+    function playClick(){
+       thread = setInterval(LoadProductAuto,5000)
+       document.getElementById("lblstatus").innerHTML="[Slide show -Running]";
+
+    }
+    
+     function pauseClick(){
+            clearInterval(thread);  
+            document.getElementById("lblstatus").innerHTML="[Slide show -paused]";
+     }
+
+     function seekbar(){
+        LoadProduct(document.getElementById("seekbar").value)
+     }
+
+   </script>
+
+
+
+
+
+
+
+
+</head>
+<body class="container-fluid d-flex justify-content-center" onload="LoadProduct(1)">
+    
+     <div class="card p-2 m-4 w-50">
+           <div class="card-header">
+              <div id="lblTitle"></div>
+              <div id="lblstatus"></div>
+           </div>
+     
+      <div class="card-body overflow-hidden row"> 
+          <div class="col-1 d-flex flex-column justify-content-center align-items-center" >
+              <button onclick="PrevClick()" class="bi bi-chevron-left btn btn-dark"></button>
+          </div>
+          <div class="col-10 position-relative ">
+            <div class="position-absolute end-0 top-0 text-white badge rounded rounded-circle bg-danger   p-2 fs-3" id="lblPrice">100</div>
+             <img id="imagProduct" width="100%" height="350">
+             <div >
+                <input onchange="seekbar()" type="range" min="1" value="1" max="20" id="seekbar" class="form-range w-100">
+             </div>
+          </div>
+          <div class="col-1 d-flex flex-column justify-content-center align-items-center">
+            <button onclick="NextClick()" class="bi bi-chevron-right btn btn-dark"></button>
+          </div>
+      </div>
+
+        <div class="card-footer">
+            <div align="center">
+                <button onclick="playClick()" class="btn btn-warning bi bi-play"></button>
+                <button onclick="pauseClick()" class="btn btn-success bi bi-pause"></button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

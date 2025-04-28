@@ -1,0 +1,89 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html> -->
+<!-- 
+
+            Array Manipulation
+    1> Reading Array Elments
+          toString() -- reads and return all elemnet separated with " ," delimete;
+          join() -- reads and return all elemnet separated with custom delimete;
+          map() -- it is an iterator to read each element with it index number -->
+
+          <script>
+              var values = [100,111,100, "dams",177,50000];
+              document.write(values.join(" / "));
+              document.write(values.join(" > "));
+
+
+
+                // iterate values using  map 
+               values.map(function(value ,index){
+                   document.write(`${index} : ${value} <br>`)
+               });
+              
+
+               //iterate values using forEach
+               values.forEach(function(value ,index){
+                   document.write(`${index} : ${value} <br>`)
+               });
+
+
+               // find and filter value
+                      
+            var result =  values.find(function(value){  // returns first occurence
+                   
+                return value >100;
+               });
+
+               document.write(`${result} <br>`);
+
+            var result2 =  values.filter(function(value){
+                   
+                   return value >=100;          //returns all  first occurence
+                  });
+                  document.write(result2);
+ 
+
+                  // values.slice(1,4)
+
+          // Explicit iterators
+              
+        //    for(var property in collection){
+
+        //    }
+          
+        //    for(var values of collection){
+
+        //    }
+
+         // example
+           
+          var number = [12,223,34,5,5,666,6,777,57];
+            
+             for(var property in number){
+                document.write(property + "<br>");
+
+             }
+
+             for(var property of number){
+                document.write(property + "<br>");
+             }
+              
+             for(var property in number){
+                document.write(`${property} : ${number[property]} <br>`);
+                
+             }
+
+
+            // Dynamically prsenting array element 
+
+
+          </script>

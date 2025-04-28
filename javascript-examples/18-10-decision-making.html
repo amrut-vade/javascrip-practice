@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+  
+   <script>
+         function btn(){
+            var buttan = document.getElementById("btnclik");
+            var para = document.getElementById("p1");
+            var add = document.getElementById("add");
+             para.className = (para.className === "d-none")? "d-block":"d-none";
+              // para.className ="d-block";
+              add.className = (add.className ==="bi bi-plus")? " bi bi-dash" : "bi bi-plus";
+         }
+
+   </script>
+
+</head>
+<body class="container-fluid">
+      <button id="btnclik" onclick="btn()" class="btn btn-dark  text-white p-2  d-flex w-100 justify-content-between">
+        <span>what is the netflix?</span>
+        <span id="add" class="bi bi-plus"></span>
+      </button>
+      <div  id="p1" class="d-none">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro, optio commodi doloremque at ipsum accusamus omnis libero nemo? Excepturi beatae non laboriosam dolorum inventore quia! Molestiae doloribus, placeat dolorum labore sint iure voluptatum quasi neque, nam reiciendis in facilis eligendi incidunt. Nulla fugit harum, magnam laudantium dolores nesciunt asperiores ut?</p>
+      </div>
+</body>
+</html>

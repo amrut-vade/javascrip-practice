@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+      function verify(){
+           var txtname = document.getElementById("txtname").value;
+           var lblerror = document.getElementById("lblerror");
+            fetch("../data/users.json")
+            .then(function(response){
+                return response.json()
+            })
+            .then(function(users){
+               for(var user of users){
+           var txtname = document.getElementById("txtname").value;
+                  if(user.userId===txtname){
+                    lblerror.innerHTML =` userId aleredy taken`.fontcolor('red');
+                    break;
+                  }else{
+                    lblerror.innerHTML =` userId available`.fontcolor('green');
+                  }
+               }
+            })
+      }
+
+    </script>
+</head>
+<body>
+         <h2>Register New User</h2>
+        <dl>
+           <dt>
+               UserId
+           </dt>
+           <dd>
+              <input id="txtname" onkeyup="verify()" type="text" >
+           </dd>
+             <p id="lblerror"> </p>
+        </dl>
+</body>
+</html>

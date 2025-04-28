@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script>
+
+
+
+             // reading element from Arry
+
+
+
+
+
+
+
+
+
+
+         var values=["All" , "Electronics","book","steel"];
+         function bodyload(){
+              values.map(function(item){
+                 
+                var option = document.createElement("option");
+                option.text=item;
+                option.value=item;
+                 
+                 document.querySelector("select").appendChild(option);
+
+              var li = document.createElement("li");
+              var input = document.createElement("input");
+              input.type ="checkbox";
+
+
+              var label = document.createElement("label");
+                 label.innerHTML =item;
+
+              // append Element input and label
+                    li.appendChild(input);
+                    li.appendChild(label);
+                document.querySelector("ul").appendChild(li);
+
+
+                        //   nav button section  
+
+                  var button = document.createElement("button");
+                    button.innerHTML = item;
+
+                     document.querySelector("nav").appendChild(button);
+
+              });
+              
+           
+              
+
+                  
+
+
+
+
+
+
+
+             
+         }
+
+    </script>
+
+</head>
+<body onload="bodyload()">
+
+      <select>
+          
+      </select> 
+       <ul>
+
+
+       </ul>
+    
+        <nav>
+
+        </nav>
+</body>
+</html>

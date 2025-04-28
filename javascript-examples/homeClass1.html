@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+     <script type="text/javascript">
+              "use Strict"
+              function bodyload(){
+                    // var img =document.getElementsByTagName('img');
+            //       window.document.images[0].src="../public/images/a1.jpg";
+            //       window.document.forms[0].elements[2].value="Register";
+            //       window.document.forms[1].elements[1].value="login";   
+              
+                  document.getElementById("pic").src="../public/images/a1.jpg";
+                  document.getElementById("btn1").value="Register";
+                  document.getElementById("btn2").value="login"
+
+               } 
+     </script>
+
+
+</head>
+<body onload="bodyload()">
+        <div>
+        <img id="pic" width="100" height="100">
+      </div>
+      <div>
+            <form>
+             <h3>Register</h3>
+          User Name:   <input type="text"> Age:<input type="number"> <input id="btn1" type="button">
+          </form>
+      </div>
+      <div>
+         <form>
+        <h3>login</h3>
+         Mobile:<input type="text"> <input id="btn2" type="button">
+        </form>
+    </div>
+
+
+</body>
+</html>

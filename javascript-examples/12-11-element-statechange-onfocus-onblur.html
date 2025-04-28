@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script>
+
+        function Setmsg(){
+           document.getElementById("msg").innerHTML="Name in block leter".fontcolor('red');  
+        }
+        function changecase(){
+        var textname = document.getElementById("txtName").value;
+              document.getElementById("txtName").value =textname.toUpperCase();
+              document.getElementById("msg").innerHTML="";  
+        
+              
+        }
+
+    </script>
+
+</head>
+<body>
+    
+        <dl>
+            <dt>User name</dt>
+            <dd><input type="text" onfocus="Setmsg()"   onblur="changecase()" id="txtName"> </dd>
+            <dd id="msg"></dd>
+        </dl>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+  
+   <script>
+      function ApplyClick(){
+         brand = "";
+         price=0;
+         rating="";
+
+          uname = document.getElementById("text").value;
+          console.log(document.getElementById("text").value);
+
+          appleRadio = document.getElementById("optApple");
+          samRadio = document.getElementById("optsam");
+
+          if(appleRadio.checked){
+             brand = appleRadio.value;
+          }
+          if(samRadio.checked){
+            brand = samRadio.value;
+          }
+           
+          price =  document.getElementById("textRange").value;
+
+          fourRadio =  document.getElementById("optFour");
+          threeRadio = document.getElementById("optThree");
+            
+          if(fourRadio.checked){
+              rating+=fourRadio.value+"&nbsp";
+                 console.log(rating);
+          }
+          if(threeRadio.checked){
+              rating+=threeRadio.value +"&nbsp";
+              console.log(rating);
+          }
+
+          document.getElementById("search").innerHTML= "hello "+uname+ " You are searching for " +brand+ "<br>" + "Price range Starting from " +price+ " with rating " +"<br>" + rating+ "<br>";
+      }
+   </script>
+
+
+</head>
+<body class="container-fluid">
+
+     <!-- <div class="w-25 bg-light mt-4 p-2">
+         <h2>Filter</h2>
+         <dl>
+            <dt>Select Brand</dt>
+            <div>
+                <input type="radio" class="form" name="Apple" id="radio" value="Apple"><label class="form-label" for="Apple">Apple</label>
+            </div>
+                <div>
+                <input type="radio"  name="Samsung" id="sam" value="Samsung"><label class="form-label" for="Samsung">Samsung</label>
+            </div>
+
+         </dl> -->
+          
+          <section class="mt-4 row">
+              <nav class="bg-light col-2 border border-1">
+                 <h2>Filter</h2>
+                   <dl>
+                     <dt>UserName</dt>
+                     <dd><input type="text" class="form-control" id="text"></dd>
+                      <dt>Select Brand</dt>
+                      <dd>
+                          <div>
+                            <input id="optApple"  type="radio" value="Apple"  class="form-check-input" name="brand" id="brand" value="Apple"> <label class="form-check-label" for="">Apple</label>
+                          </div>
+                          <div>
+                            <input id="optsam" type="radio" value="Samsung" class="form-check-input" name="brand" id="brand" value="Samsung"> <label class="form-check-label" for="">Samsung</label>
+                          </div>
+                      </dd>
+
+                       <dt>Price Range</dt>
+                       <dd>
+                        <input id="textRange" type="range" min="10000" max="40000" value="10000" class="form-range">
+                         <div>
+                            <span>10,000</span>
+                            <span class="float-end">40,000</span>
+                         </div>
+                       </dd>
+                        <dt>Rating</dt>
+                        <dd>
+                            <div> <input id="optFour" value="4+ Rating" type="checkbox" name="rating" class="form-check-input">    4 <span class="bi text-success bi-star-fill"></span> & above</div>
+                            <div> <input id="optThree" value="3+ Rating" type="checkbox" name="rating" class="form-check-input">  3 <span class="bi text-success bi-star-fill"></span> & above</div>
+                        </dd>
+                   </dl>
+                   <button onclick="ApplyClick()"  class="btn btn-primary w-100 mb-3">Apply Filter</button>
+              </nav>
+               <main class="col-10 text-center">
+                  <h2 id="search"></h2>
+               </main>
+          </section>
+
+
+
+
+
+
+     </div>
+    
+</body>
+</html>

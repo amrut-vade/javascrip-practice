@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+   <script>
+      function DetailsClick(obj,e,...details){
+           var [id,name,stock,city,rating] = details;
+
+           document.write(`id=${id}<br>name=${name}<br>stock=${stock}<br>city=${city}<br>rating=${rating.rate}[${rating.du}]`);
+           document.write(`name=${obj.name} position=${e.clientX}`);
+      }
+
+
+   </script>
+
+
+</head>
+<body>
+    
+  <button name="btn" class="btn btn-primary" onclick="DetailsClick(this, event,1,'amrut',true,['Delhi','Hyd'], {rate:4.5,du:'amrut'})">details</button>
+
+</body>
+</html>

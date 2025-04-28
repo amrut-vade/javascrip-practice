@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+ <style>
+      ul{
+        list-style: none;
+      }
+ </style>
+  
+  <script>
+      function submit(){
+      var courseCheckboxes = document.getElementsByName("Course");
+         var courseName = "";  
+         var fee=0;
+    //   courseCheckboxes.map(function(checkbox){
+    //       if(checkbox.checked){
+    //         courseName+= checkbox.value + "<br>";
+    //       }
+    //   })
+          
+         for(var checkbox  of courseCheckboxes){
+             // of for values    and in for keyes
+             if(checkbox.checked){
+                courseName += checkbox.value + "<br>";  
+                fee+= parseInt(checkbox.id);
+                 
+             }
+         }
+       
+        document.getElementById("checkbox").innerHTML = `<h3> Selected Courses </h3>
+         ${courseName} <br> Total Fee : ${fee} `;  
+      }
+  </script>
+
+</head>
+<body class="container-fluid" >
+       
+    <ul>
+        <li> <input onchange="submit()" name="Course" type="checkbox" id="4000" value="java">   Java</li>
+        <li> <input onchange="submit()" name="Course"  type="checkbox" id="500" value=".Net"> .Net</li>
+        <li> <input onchange="submit()" name="Course" type="checkbox" id="6000" value="html"> html</li>
+        <li> <input onchange="submit()" name="Course" type="checkbox" id="7000" value="Css"> Css</li>
+        <li> <input onchange="submit()" name="Course" type="checkbox" id="8000" value="sql"> sql</li>
+    </ul>
+    <button onclick="submit()">Submit</button>
+     <p id="checkbox"></p>
+</body>
+</html>

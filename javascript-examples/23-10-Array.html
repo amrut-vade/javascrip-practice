@@ -1,0 +1,79 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+</head>
+<body>
+
+     var values  = new Array();
+      values[0] ="10";
+      values[1] ="20";
+      values[2] ="30";
+      value[3] ="40";
+      values[4] ="50";
+      values["5"] = "A";
+      values[6] = "B";  
+      values[7] = true;
+ 
+       for(var property in values){
+        document.write(`${property} [${typeof property}] : ${values[property]} [${typeof values[property]}] <br>`);
+       }
+     -->
+<!-- </body>
+</html> --> 
+
+<!-- Configuring Array
+  Array configuration comprises of 2 phases
+  a> Declare Array 
+  b>Assign or intialize memory for Array
+
+  Array can be declared with var let or const keywords.
+     var products
+     let values;
+
+     ARRAY memory is defined by usinf 2 tchniques
+     a>[]  Array meta Character
+     b>Array()    Array Constructor
+
+     syntax :
+      var values = []
+      var values = new Array()
+   
+       var values ;
+       values = []    values = new Array(); -->
+
+       <script>
+       
+       var values  = new Array();
+      values[0] =10;
+      values[1] =20;
+      values[2] ="30";
+      values[3] ="40";
+      values[4] ="50";
+      values["5"] = "A";
+      values[6] = "B";  
+      values[7] = true;
+
+     for(  var property in values){
+
+      document.write(`${property} [${typeof property}] : ${values [property]} [${typeof values[property]}]<br>`); 
+     }
+
+
+       var Array = [10,"TV",["Delhi", "Hyd"], function(){document.write("hello word")}];
+
+       document.write(  `${Array[0]} <br>`);
+       document.write(Array[1]);
+       document.write(Array[2][0]);
+       document.write(Array[2][1]);
+       document.write(Array[3]());
+
+       var array1 =  [[10,20],[["amrut" , "amu"], 50]]
+       document.write(Array[1][0][1]);
+       document.write(Array[1][1]);
+       </script>

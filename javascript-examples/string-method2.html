@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+  <script>
+      function details(){
+         var size =document.getElementById("txtrange").value;
+         var color = document.getElementById("txtcolor").value;
+         var stay =document.getElementById("txtbold").value;
+         document.getElementById("p").innerHTML = "sample Text".fontsize(size).fontcolor(color);
+           if(stay=="bold"){
+            document.getElementById("p").innerHTML = "sample Text".fontsize(size).fontcolor(color).bold();
+           }
+           if(stay==italics){
+            document.getElementById("p").innerHTML ="sample Text".italics();
+           }
+      }
+  </script>
+</head>
+<body>
+    
+     <dl>
+        <dt>Set Font Size</dt>
+        <dd>
+            <input type="range" id="txtrange" min="1" max="7" value="3">
+        </dd>
+        <dt>Set Color</dt>
+        <dd>
+            <input type="color" name="color" id="txtcolor">
+        </dd>
+        <dt>Select Style</dt>
+        <dd>
+            <select id="txtbold">
+                <option >select value</option>
+                <option value="bold" >Bold</option>
+                <option value="italics" >italic</option>
+            </select>
+        </dd>
+     </dl>
+      <button onclick="details()">Apply</button>
+        
+      <div id="p">
+         
+      </div>
+</body>
+</html>

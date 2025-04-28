@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fakestore</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+   
+
+    <script>
+   
+        //   load categoryes
+    function LoadCategories(){
+        var  category =  document.getElementById("lstcategory");
+        
+
+          fetch("https://fakestoreapi.com/products/categories")
+           .then((response)=>{
+                return response.json();
+           })
+           .then((category)=>{
+            category.unshift("All");
+            category.map((item)=>{
+                var option = document.createElement("option");
+                 option.text =item.toUpperCase();
+                 option.value = item;
+                 document.getElementById("lstcategory").appendChild(option); 
+            });
+             
+           
+           });
+
+    }
+
+    // load products
+
+      function LoadProducts(url){
+           document.querySelector("main").innerHTML= " ";
+          fetch(url)
+          .then((response)=>{
+                return response.json();
+           })
+           .then(function(products){
+            products.map(function(product){
+
+                var div = document.createElement("div");
+                  div.className = "card m-2 p-2";
+                  div.style.width ="200px";
+                  div.innerHTML = `
+
+                     <img class="card-img-top" src="${product.image}" style ="" height="120">
+                    <div class="card-header bg-light" style="height:120px">
+                         ${product.title};
+                     </div>
+                      <div class="card-body">
+                          <dl>
+                               <dt>Price </dt>
+                             <dd>${product.price} </dd>
+                               <dt>rating </dt>
+                             <dd>${product.rating.rate} <span class="bi bi-star-fill text-success"> <span> </dd>
+                          </dl>
+
+                     </div>
+                      <div class="card-footer bg-light">
+                        <button onclick="AddClick(${product.id})" class="bi bi-cart3 btn btn-warning"> Add to Cart </button>
+                         </div>
+
+                         
+                   `;
+
+                    // addd car to main section
+                    document.querySelector("main").appendChild(div);
+            })
+           })
+      }
+
+     
+            
+
+
+    function bodyload(){
+        LoadCategories();
+        LoadProducts("https://fakestoreapi.com/products");
+        GetCartCount();
+    }
+
+
+ // load product by changing category
+ function categoryChange(){
+           var categoeyNaame = document.getElementById("lstcategory").value;
+             if(categoeyNaame ==="all"){
+                LoadProducts("https://fakestoreapi.com/products");  
+             }
+           LoadProducts(`https://fakestoreapi.com/products/category/${categoeyNaame}`);
+    }
+
+
+    // get cartcount logic here  cart item
+      var cartItems = [];
+      function GetCartCount(){
+          document.getElementById("lblcount").innerHTML =cartItems.length;
+      }
+
+
+          // add product into cart
+          function AddClick(id){
+              
+              fetch(`https://fakestoreapi.com/products/${id}`)
+               .then( function(response){
+                return response.json();
+               })
+               .then(function(product){
+                cartItems.push(product)
+                GetCartCount();
+                alert(`${product.title}\n Added to cart`);
+               })
+          }
+
+
+            // display tbody content 
+          function showChart(){
+               document.querySelector("tbody").innerHTML = "";
+               cartItems.map(function(product){
+                    
+                  var tr = document.createElement("tr");
+                  var tdtitle = document.createElement("td");
+                  var tdPrice = document.createElement("td");
+                  var tdPreview = document.createElement("td");
+
+
+                  tdtitle.innerHTML = product.title;
+                  tdPrice.innerHTML = product.price;
+                  tdPreview.innerHTML =`
+                    <img src=${product.image} width="50" height="50">
+                  `
+
+
+
+                  tr.appendChild(tdtitle);
+                  
+                  tr.appendChild(tdPreview);
+                  tr.appendChild(tdPrice);
+
+                  document.querySelector("tbody").appendChild(tr);
+
+               })   
+          }
+
+                  ///  on search bar searchin  categoryr getting products
+                  function searchclick(){
+                    var category =   document.getElementById("txtSearch").value;
+                      var  categoryLowercase =   category.toLowerCase(); 
+                    LoadProducts(`https://fakestoreapi.com/products/category/${categoryLowercase}`);
+                        
+
+                  }
+
+        function RatingChange(){
+              document.querySelector("main").innerHTML= " ";
+            var rating =  document.getElementById("optRating");
+
+             if(rating.checked){
+                fetch(`https://fakestoreapi.com/products`)
+                 .then(function(response){
+                     return response.json();
+                 })
+                 .then(function(products){
+                        var filteredProducts = products.filter(function(product){
+                              return product.rating.rate>4.5;
+                        });
+                      console.log(filteredProducts);
+
+                      filteredProducts.map(function(product){
+                        var div = document.createElement("div");
+                  div.className = "card m-2 p-2";
+                  div.style.width ="200px";
+                  div.innerHTML = `
+
+                     <img class="card-img-top" src="${product.image}" style ="" height="120">
+                    <div class="card-header bg-light" style="height:120px">
+                         ${product.title};
+                     </div>
+                      <div class="card-body">
+                          <dl>
+                               <dt>Price </dt>
+                             <dd>${product.price} </dd>
+                               <dt>rating </dt>
+                             <dd>${product.rating.rate} <span class="bi bi-star-fill text-success"> <span> </dd>
+                          </dl>
+
+                     </div>
+                      <div class="card-footer bg-light">
+                        <button onclick="AddClick(${product.id})" class="bi bi-cart3 btn btn-warning"> Add to Cart </button>
+                         </div>
+
+                         
+                   `;
+
+                    // addd car to main section
+                    document.querySelector("main").appendChild(div);
+                      })
+                 })
+             }else{
+                LoadProducts(`https://fakestoreapi.com/products`);
+             }
+        }
+
+</script>
+
+    
+</head>
+<body class="container-fluid" onload="bodyload()" >
+    
+  <header class="d-flex justify-content-between p-2 bg-light border border-1 mt-1 ">
+       <div>
+        <span class="fs-3 fw-bold">fakestore</span>
+       </div>
+      
+       <div class="fs-7">
+           <span> <a class="text-decoration-none text-dark"  href="javascript:LoadProducts(`https://fakestoreapi.com/products`)">Home</a></span>
+           <span class="mx-2"><a class="text-decoration-none text-dark"  href="javascript:LoadProducts(`https://fakestoreapi.com/products/category/electronics`)">Electronics</a></span>
+           <span><a class="text-decoration-none text-dark"  href="javascript:LoadProducts(`https://fakestoreapi.com/products/category/jewelery`)">Jewelery</a></span>
+           <span class="mx-2"><a class="text-decoration-none text-dark"  href="javascript:LoadProducts(`https://fakestoreapi.com/products/category/men's clothing`)">mens fashion </a></span>
+           <span><a class="text-decoration-none text-dark"  href="javascript:LoadProducts(`https://fakestoreapi.com/products/category/women's clothing`)">Women's Fashion </a></span>
+       </div>
+
+       <div>
+         <button onclick="showChart()" class="bi bi-cart4 btn btn-warning position-relative mt-1" data-bs-toggle="modal"  data-bs-target="#cart">
+             <span class="badge bg-danger rounded rounded-circle position-absolute mb-1" id="lblcount"></span>
+
+         </button>
+           <div class="modal fade" id="cart">
+                  <div class="modal-dialog">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <h2>Your Cart Item</h2>
+                            <button class="btn btn-close" data-bs-dismiss="modal">
+
+                            </button>
+                          </div>
+                          <div class="card-body">
+                               <table class="table table-hover">
+                                       <thead>
+                                           <tr>
+                                               <th>Title</th>
+                                               <th>Preview</th>
+                                               <th>Price</th>
+                                           </tr>
+                                       </thead>
+                                       <tbody>
+                                      
+                                       </tbody>
+                               </table>
+
+                          </div>
+                      </div>
+
+                  </div>
+           </div>
+       </div>
+    </header>
+  <section class="row mt-2 " >
+       <nav class="col-2">
+               <div>
+                   <label class="form-label">Select Category</label>
+                   <div>
+                    <select onchange="categoryChange()" id="lstcategory" class="form-select"></select>
+                   </div>
+               </div>
+
+               <div>
+                <div class="input-group my-2">
+                    <input id="txtSearch" type="text" class="form-control" placeholder="Search fakestore">
+                    <button onclick="searchclick()" class="bi bi-search btn btn-warning"></button>
+                </div>
+               </div>
+
+               <div class="mt-4">
+                      <label class="form-label fw-bold">Rating</label>
+                      <div>
+                         <input onchange="RatingChange()" id="optRating" type="checkbox" class="form-check-input"> <label>4.5 <span class="bi bi-star-fill text-success"></span> Above</label>
+                      </div>
+               </div>
+       </nav>
+       <main class="col-10 d-flex flex-wrap overflow-auto" style="height: 500px;">
+
+       </main>
+  </section>
+
+ 
+
+
+
+
+
+
+
+</body>
+</html>

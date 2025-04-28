@@ -1,0 +1,31 @@
+<script>
+
+    var prodcut ={
+        
+        id:1,
+        Name:"TV",
+        Price:30000.33,
+        Stock:true,
+        rating:4.5
+
+    }
+  
+
+    //   for(var key in prodcut){
+
+    //     document.write(key + "<br>");
+    //   }
+
+      Object.keys(prodcut).map(function(key){
+        document.write(key +"<br>")
+      })
+
+       
+        var data = new Map();
+        data.set(1,"Tv");
+        data.set("Mobile", {Name:"Iphone",Price:60000.34});
+
+        document.write(data.get("Mobile").Price)
+
+
+</script>

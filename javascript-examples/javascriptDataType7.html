@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Type</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+    <script>
+
+        //   var age = parseInt( prompt("Enter Your Age"));
+        //   document.write("your age is " +age+ " and next year will be " +(age+1)+ "yess");
+ 
+        //  function submit(){
+        //      var age = document.getElementById("age").value;
+        //      if(isNaN(age)){
+        //         document.getElementById("age1").innerHTML="age must be number";
+        //      }else{
+        //         document.getElementById("age1").innerHTML="your Age is " +age;
+        //      }
+        //  }
+
+          function GetCode(){
+              var code = Math.round(Math.random()*10)+" " +Math.round(Math.random()*10)+ " " +Math.round(Math.random()*10)+
+                         " "+Math.round(Math.random()*10)+ " "+Math.round(Math.random()*10)+ " " +Math.round(Math.random()*10);
+                
+                         document.getElementById("lblcode").innerHTML = code;
+          }
+
+           function Realod(){
+             GetCode();
+           }
+
+          function bodyload(){
+            GetCode();
+          }
+
+          
+    </script>
+</head>
+          
+<body onload="bodyload()" class="container-fluid">
+      
+      <!-- your Age: <input id="age" type="text" name="age" > <button onclick="submit()">submit</button>
+      <p id="age1"></p> -->
+
+        <dl>
+            <h3 class="bi bi-person-fill">User Name</h3>
+            <dt>User Name</dt>
+            <dd><input type="text"></dd>
+            <dt>Password</dt>
+            <dd><input type="password"></dd>
+            <dt>Verify Code <button onclick="Realod()" class="btn bi-clock-history"></button></dt>
+            <dd id="lblcode"></dd>
+            <dd><input type="text" id="textCode"></dd>
+        </dl>
+        <button>Login</button>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+     <script>
+        
+
+        var categories = ["All" , "electronics", "fashion","footwear","tubes"];
+
+       function bodyload(){
+          
+            for(var i=0; i<categories.length; i++){
+                 var li = document.createElement("li");
+                  li.innerHTML=categories[i];
+               document.querySelector("ol").appendChild(li);
+            }
+       }
+
+        
+       function PrintTable(n){
+           
+        for(var i=1; i<=10; i++){
+           document.write(`${n} X ${i} = ${n*i} <br>`) 
+        }
+         
+       }
+       PrintTable(parseInt(prompt("enter Number")));
+
+
+       function PrintEvent(start,end){
+            
+           for(var i=start; i<=end; i++){
+             
+             if(i%2===0){
+               document.write( i +  "<br>" );
+             }
+              
+
+           }
+
+       }
+       PrintEvent(10,40)
+
+         function Factorial(n){
+             var result =1;
+            for(var i=1; i<=n; i++){
+                result *=i;
+            }
+
+            document.write(`Factorail of ${n} is ${result}`);
+         }
+         Factorial(6);
+
+     </script>
+
+</head>
+<body onload="bodyload()">
+      <ol>
+
+      </ol>
+
+
+</body>
+</html>

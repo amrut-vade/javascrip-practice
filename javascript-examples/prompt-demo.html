@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+         function addclick(){
+          result = prompt("Enter Folder Name");
+
+           if(result ==null){
+             alert('Acgtion  cancel');
+           }else if(result==''){
+            alert('Please Enter Folder Name')
+           }
+           else{
+             document.getElementById("lblFolder").innerHTML += "Folder Created"+result;
+           }
+         }
+    </script>
+</head>
+<body>
+        <h3>Google Drive</h3>
+
+          <div>
+            <button onclick="addclick()">+Add folder</button>
+          </div>
+           <br><br>
+           <div id="lblFolder">
+
+           </div>
+</body>
+</html>

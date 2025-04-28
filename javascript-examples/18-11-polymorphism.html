@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+         class Employee{
+            FirstName;
+            LastName;
+            Desiganation;
+            Print(){
+                document.write(`${this.FirstName}${this.LastName} - ${this.Desiganation}`)
+            }
+         }
+
+
+         class Developer extends Employee{
+            FirstName = "Raj";
+            LastName = "kumar";
+              Desiganation = "Developer";
+              Role = "Developer Role - Build ,Debug, Test";
+              Print(){
+                 super.Print();
+                 document.write(`${this.Role}`);
+              }
+         }
+
+
+         class Admin extends Employee{
+              FristName = "ram";
+              LastNAme = "shinde";
+              Desiganation = "Admin";
+              Role = "Developer Role - Build ,Debug, Test";
+              Admin ="banker";
+              Print(){
+                 super.Print();
+                 document.write(`${this.Admin}`);
+              }
+         }
+
+           let employees = new Array(new Developer(), new Admin());
+
+           var desiganation  = prompt("Enter Designation");
+              for(var employee of employees ){
+
+                   if(employee.Desiganation === desiganation){
+                    employee.Print();
+                      
+                   }
+              }
+                
+
+
+    </script>
+</head>
+<body>
+    
+
+
+</body>
+</html>

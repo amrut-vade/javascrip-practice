@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script>
+
+        function submit(e){
+             e.preventDefault();       
+            alert("submited to server");
+
+        }
+
+         function citychange(){
+             var form = document.querySelector("form");
+                 form.submit();
+         }
+    </script>
+
+</head>
+<body>
+    <form>
+        <input type="text" name="UserName" id=""> 
+          <select name="city">
+            <option >Select category</option>
+            <option value="delhi">delhi</option>
+            <option value="mumbai">mumbai</option>
+          </select>
+        <button type="submit">submit to shopper Template</button>
+        <button type="submit">submit to kfc form</button>
+   
+       </form>
+</body>
+</html>
+
+<!-- <form onsubmit="submit(event)"  onreset="alert('form reset')" >
+  <input type="text" name="UserName" id=""> 
+    <select name="city" onchange="citychange()">
+      <option >Select category</option>
+      <option value="delhi">delhi</option>
+      <option value="mumbai">mumbai</option>
+    </select>
+  <button type="submit">submit</button>
+  <button type="reset">Reset</button>
+
+ </form> -->

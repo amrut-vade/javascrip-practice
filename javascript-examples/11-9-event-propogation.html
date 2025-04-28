@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script>
+      function navClick(){
+        alert("navbar cliked");
+      }
+
+     function buttonClick(e){
+        e.stopPropagation();
+        alert("button clicked")
+     }
+    </script>
+
+</head>
+<body>
+    
+  <nav onclick="navClick()" style="background-color: black; color:white; padding: 20px;">
+
+
+    <h2>Shopper</h2>
+
+   <button onclick="buttonClick(event)">search</button>
+
+
+
+
+  </nav>
+
+
+
+
+
+</body>
+</html>

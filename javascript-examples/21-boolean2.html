@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+  <script>
+      function Required(){
+         var checkbox = document.getElementById("optRequired");
+         var txtName = document.getElementById("txtName");
+
+         if(checkbox.checked){
+            txtName.required=true;
+         }else{
+            txtName.required=false;
+         }
+      }
+  </script>
+
+
+</head>
+<body>
+    
+
+    <form action="">
+
+        <dl>
+            <dt>User Name</dt>
+            <dd> 
+                <input type="text" id="txtName"
+                 name="UserName">
+            </dd>
+            <dd>
+                <input type="checkbox"
+                   onchange="Required()"
+                   id="optRequired"
+                >check box is required
+            </dd>
+        </dl>
+
+        <button>Submit</button>
+    </form>
+</body>
+</html>

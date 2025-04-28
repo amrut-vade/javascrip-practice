@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    
+    
+    <script>
+
+       function bodyLoad()
+     {
+        var products = []
+
+        var http = new XMLHttpRequest();
+        http.open("get", "../data/product.json", true);
+        http.send();
+
+          http.onreadystatechange = function(){
+
+              if(http.readyState ===4){
+
+              products = JSON.parse(http.responseText);
+               
+              products.map(function(product){
+                   
+                  var div =  document.createElement("div");
+                    div.className = "card p-2 m-2"
+                     div.innerHTML = `
+                       <img src=${product.image} class="card-img-top" height="200">
+                         <div class="card-header mt-2">
+                             ${product.title}
+                         </div>
+                         <div class="card-body">
+                              ${product.price.toLocaleString('en-in')}
+                         </div>
+
+                     `;
+
+                      document.querySelector("main").appendChild(div);
+              })       
+
+
+              }
+          }
+
+     }
+    </script>
+
+
+</head>
+<body onload="bodyLoad()" class="container-fluid">
+     <main class="d-flex">
+
+
+     </main>
+</body>
+</html>

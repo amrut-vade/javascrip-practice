@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+
+    function  bodyload(){
+          document.getElementById("lname").innerHTML = location.search.slice(location.search.indexOf("=")+1);
+    }
+</script>
+</head>
+<body onload="bodyload()">
+    
+    <h2>Results <span id="lname"></span></h2>
+    <a href="class4Search.html">Back</a>
+</body>
+</html>

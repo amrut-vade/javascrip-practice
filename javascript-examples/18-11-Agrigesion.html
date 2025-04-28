@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+ <script>
+
+    class Hdfc_version_1{
+
+         Person = "personal inbanking servies";
+         print(){
+            document.write(` ${this.Person}<br>`);
+         }
+    }
+
+    class hdfc_version_2{
+
+        loans = "loans inbanking servies";
+         print(){
+           let obj = new Hdfc_version_1();
+             
+            obj.print();
+            document.write(` ${this.loans}<br>`);
+         }
+    }
+
+    class hdfc_version_3{
+
+       bank = "man inbanking servies";
+        print(){
+        let obj = new hdfc_version_2();
+            obj.print();
+           document.write(` ${this.bank}<br>`);
+        }
+  }
+
+         function  installClick(){
+      
+         var value =   document.getElementById("select1").value;
+
+           switch(value){
+
+             case "v1" : 
+              let obj1 = new  Hdfc_version_1();
+                  obj1.print();
+                  break;
+
+              case "v2" : 
+              let obj2 = new  hdfc_version_2();
+                  obj2.print();
+                  break;
+             
+              case "v3" : 
+              let obj3 = new  hdfc_version_3();
+                  obj3.print();
+                  break;
+            
+              default: 
+              document.write(`please select value`);
+              break;
+           }
+
+      }
+
+ </script>
+
+</head>
+<body>
+
+    <select id="select1">
+        <option >Select banking version</option>
+        <option value="v1">hdfc_version_1</option>
+        <option value="v2">hdfc_version_2</option>
+        <option value="v3">hdfc_version_3</option>
+    </select>
+    <button id="btnclick" onclick="installClick()">install</button>
+    
+</body>
+</html>

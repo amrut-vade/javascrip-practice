@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+         img{
+            width:150px;
+            height: 150px;
+         }
+
+        .pic1{
+            border-top-right-radius: 150px;
+            border-bottom-left-radius: 150px;
+        }
+        .pic2{
+            border-top-left-radius: 150px;
+            border-bottom-right-radius: 150px;
+        }
+        .pic4{
+            border-top-right-radius: 150px;
+            border-bottom-left-radius: 150px;
+        }
+        .pic3{
+            border-top-left-radius: 150px;
+            border-bottom-right-radius: 150px;
+        }
+
+
+         body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+         }
+
+           @keyframes rotate{
+              from{
+                transform: rotate(0deg);
+              }to{
+                transform: rotate(360deg);
+              }
+           }
+
+             .pic{
+                animation-name: rotate;
+                animation-duration: 5s;
+                animation-timing-function: linear;
+                animation-iteration-count: infinite;
+             }
+             
+
+
+
+    </style>
+
+    <script>
+            function fastClick(){
+              var flower = document.getElementById("pics");
+                flower.style.animationName="rotate";
+                flower.style.animationDuration="100ms";
+                flower.style.animationIterationCount="infinite";
+                flower.style.animationTimingFunction="linear";
+            }
+
+            function slowClick(){
+                var flower = document.getElementById("pics");
+                flower.style.animationName="rotate";
+                flower.style.animationDuration="5s";
+                flower.style.animationIterationCount="infinite";
+                flower.style.animationTimingFunction="linear";
+             
+            }
+    </script>
+
+</head>
+<body class="d-flex justify-content-center" style="height:100vh">
+  
+    <div>
+          <button onclick="fastClick()">Spin Fast</button>
+          <button onclick="slowClick()">Slow</button>
+        <div id="pics" class="pic" style="margin-top: 100px;" onmousedown="fastClick()" onmouseup="slowClick()">
+            <div>
+                <img class="pic1" src="../public/images/a1.jpg" width="200" height="200">
+                <img class="pic2" src="../public/images/a2.jpg" width="200" height="200">
+            </div>
+            <div>
+                <img class="pic3" src="../public/images/a3.jpg" width="200" height="200">
+                <img class="pic4" src="../public/images/a4.jpg" width="200" height="200">
+            </div>
+        
+           </div>
+        
+    </div>
+
+
+
+       
+
+
+</body>
+</html>
+onmouseover="fastClick()"
+onmouseout="slowClick()"

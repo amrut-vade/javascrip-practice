@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <!-- <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+ -->
+
+      <style>
+          #year{
+             display: inline-block;
+             width:100px;
+           margin-left: 5px;
+          }
+           .for{
+            display: inline-block;
+             width:50px;
+             margin-left: 5px;
+             margin-right: 5px;
+           }
+           .man{
+             height: 200px;
+           }
+      </style>
+</head>
+<body class="container-fluid d-flex justify-content-center">
+<!-- <div class="w-50 mt-4">
+    <div class="  mt-4 p-4 border border-2 bg-light  border-light h-auto">
+        <div class="d-flex justify-content-between">
+        Amount you need <input type="number">
+        for <input  id="year"   type="number" name="number" id="number">years
+        interest rate  <input id="year" type="number" name="number" id="number">% 
+        </div>
+        <div class="d-flex justify-content-around">
+          
+         <input type="range" min="1000" max="5000" >
+         <input type="range" min="1000" max="5000" >
+         <input type="range" min="1000" max="5000" >
+        
+         </div>
+         <div class="border border-2 bg-light  border-light h-auto">
+          
+            <input type="range" min="1000" max="5000" >
+            <input type="range" min="1000" max="5000" >
+            <input type="range" min="1000" max="5000" >
+           
+            </div>
+    </div>
+
+   
+  </div> -->
+    <div class="m-4 p-4 w-50 bg-light man">
+        <div class=" d-flex justify-content-between">
+             <div>
+
+                Amount you need <input id="year" type="text">
+                 <div class="mt-2" >
+                    <input  class="w-100 " type="range">
+                 </div> 
+                  <div>
+                    <span>50000</span>
+                    <span class="float-end">400000</span>
+                  </div>
+             </div>
+             <div>
+                 for<input class="for" type="number">years
+                <div class="mt-2" >
+                   <input  class="w-100 " type="range">
+                </div>
+                <div>
+                    <span>1 year</span>
+                    <span class="float-end">5 year</span>
+                  </div>
+             </div>
+             <div>
+                interest rate <input class="for" type="number">%
+                <div class="mt-2" >
+                   <input  class="w-100 " type="range">
+                </div>
+                <div>
+                    <span>10.75%</span>
+                    <span class="float-end">21%</span>
+                  </div>
+             </div>
+              
+        </div>
+
+          <div class="d-flex justify-content-end mt-4">
+            <button class="btn btn-primary">CALCULATE</button>
+          </div>
+         </div>
+    
+       
+</body>
+</html>

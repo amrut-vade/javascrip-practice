@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+   
+
+    <script>
+         var pattern = / /;
+         var tip = "";
+        function contry(){
+            var country = document.getElementById("lst").value;
+            var image =document.getElementById("image");
+            var Number = document.getElementById("txtNumber").value;
+             
+            
+            if(country=="india"){
+                 
+                 tip="eg: +91 and 10 digits";
+                image.src="../public/images/a1.jpg";
+                pattern = /\+91\d{10}/;
+            }
+             else if(country=="us"){
+                tip="eg: +(1)(425) 555-0100"
+                image.src="../public/images/a2.jpg"; 
+                pattern=/ \+\(1\)\(\d{3}\)\s\d{3}-d{4}/;
+            }else if(country=="landon"){
+                tip="eg: +(44)(20) 1555 0100"
+                image.src="../public/images/a3.jpg"; 
+                pattern=/ \+\(d{2}\)\(\d{2}\)\s\d{4}\s\d{4}/;
+            
+            } 
+         var mobile =  document.getElementById("txtNumber");
+           mobile.placeholder = tip;
+       }
+
+     function SubmitClick(){
+        var Number = document.getElementById("txtNumber").value;
+        console.log(Number);
+        if(Number.match(pattern)){
+            document.write("<h2>Mobile Verified SuccessFully..</h2>");
+        }else{
+           
+            // document.getElementById("lblEoror").innerHTML=`Invalid Mobile`;
+            //  console.log("eroror");
+            document.getElementById("msgEroor").innerHTML=`Invalid mobile number ${tip}`.fontcolor('red');
+        }
+      
+     }
+   </script>
+</head>
+<body class="container-fluid">
+
+     <!-- <script>
+
+         var str = "Welcome to javascript";
+         var ind = str.indexOf("W");
+         console.log(ind)
+        document.write(str.slice(7,15) + "<br>");
+        document.write(str.substr(7,15) +"<br>");
+        document.write(str.substring(7,0) +"<br>");
+
+           var email = prompt("Enter Email Address");
+            var id = email.substring(email.indexOf("@"), 0);
+            var domain = email.slice(email.indexOf("g"));
+            console.log(id);
+             
+            console.log(domain);
+     </script> -->
+
+        <dl class="w-25 mt-2">
+             <dt>Select country</dt>
+             <dd class="input-group">
+                <select id="lst" onchange="contry()" class="form-select">
+                    <option value="">select your compnay</option>
+                    <option value="india">india</option>
+                    <option value="us">us</option>
+                    <option value="landon">landon</option>
+                    
+            
+                </select>
+                <img id="image" class="input-group-text" width="100" alt="">
+             </dd>
+                
+             <dt>Mobile Number</dt>
+             <dd>
+                <input type="text" id="txtNumber" class="form-control" >
+             </dd>
+              <dd id="msgEroor">
+
+              </dd>
+
+             <dd>
+                <button onclick="SubmitClick()" class="btn btn-warning p-2 w-100">Submit</button>
+             </dd>
+        </dl>
+
+</body>
+</html>

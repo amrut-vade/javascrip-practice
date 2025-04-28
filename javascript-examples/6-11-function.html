@@ -1,0 +1,60 @@
+<script>
+    // function expression exampele
+//   var password = prompt("Enter Password");
+//   var result;
+//   if(password==="admin"){
+//          result = function(){
+//             document.write("<h2>login Success...</h2>")
+//          }
+//   }else{
+//     result = function(){
+//             document.write("<h2> Invalid...</h2>")
+//          }
+//   }
+
+//    result();
+
+   function Details(id,name,price){
+    document.write(`id=${id} <br>Name=${name}<br> price=${price}<br>`)
+   }
+
+  Details(1,"amrut",6000);
+
+
+//   function Details(id,name,price, cities,rating){
+//     document.write(`id=${id} <br>Name=${name}<br> price=${price}<br>
+//     cities=${cities}<br> rating=${rating.rate}[${rating.count}]`);
+//    }
+
+//     Details(1,"amrut",4555,["amrut","rahul","bottle"],{rate:3.4, country:660});
+   
+
+  var man = ["amr","samr","guru"];
+   
+    document.write(`${man.join('<br>')}`)
+        var obj ={ 
+            rate:3.4, 
+            country:660
+        }
+        document.write(`${obj.rate}<br>${obj.country}`);
+
+
+        function Detail(...prodcut){
+            [id,name,price,city,rating] = prodcut;
+           document.write(`id=${id}`)
+           document.write(`name=${name}`)
+           document.write(`price=${price}`)
+           document.write(`cities=${city.join(' / ')}`)
+           document.write(`Rating=${rating.rate}<br>`)
+     }
+
+    Detail(1,"amrut",555,["amrut","rahul"],{rate:3.4, country:660});
+   
+
+          function product(id,name,price){
+            document.write(` id=${id}<br> name=${name}<br> price=${price}<br>`);
+          }
+           var  vlauee =[12,"amrut",8999];
+           product(...vlauee);
+
+</script>

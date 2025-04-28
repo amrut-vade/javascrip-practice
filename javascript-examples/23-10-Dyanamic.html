@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+
+     <script>
+
+   var values = ["All", "Electronics" , "fashion" , "amrut"];
+     function LoadClick(){
+        // var pic = document.createElement("img");
+        // pic.src="../public/images/a1.jpg";
+        // pic.width = "200";
+        // pic.height ="200";
+        // pic.alt ="imageload";
+
+        // document.getElementById("conatiner").appendChild(pic);
+         
+        //   var ol = document.createElement("ol");
+        //   ol.type ="1";
+
+        //    var item1 = document.createElement("li");
+        //    var item2 = document.createElement("li");
+
+        //      item1.innerHTML="HTML";
+        //      item2.innerHTML ="JavaScript";
+
+        //      ol.appendChild(item1);
+        //      ol.appendChild(item2);
+         
+        //   document.getElementById("conatiner").appendChild(ol);
+
+            
+            document.querySelector("ol").innerHTML="";
+            values.map(function(value){
+               
+              var li  = document.createElement("li");
+                 li.innerHTML =value;
+                 document.querySelector("ol").appendChild(li);
+                
+            });
+         }
+    </script>
+
+</head>
+<body>
+  
+    
+    <button onclick="LoadClick()">Load Photo</button>
+     <br><br>
+     <!-- <div id="conatiner">
+
+     </div>
+   -->
+        <ol>
+
+        </ol>
+
+</body>
+</html>
+
+
+ <!-- var pic =  document.createElement("div");
+ var pic = document.createElement("img");
+    
+ pic.src="
+ pic.width=" "
+ pic.alt = " "
+
+add element into page or into any parent conatiner by using "appenChild()";
+
+
+synatax 
+document.querySelector("body").appendChild(pic);
+document.getElementById("coantainer").appenChild("") -->

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+   
+  <script>
+      
+      function verify(){
+          var username = document.getElementById("textcode").value;
+           console.log(username.length)
+           var message = document.getElementById("message");
+
+           if(username.length == 0){
+            message.innerHTML="user name is required".fontcolor('red');
+                 console.log(message);
+           } else{
+             if(username.length <4){
+                message.innerHTML="user name too short".fontcolor('gold');
+             }
+             else{
+                message.innerHTML="";
+                var firstCharCode = username.charCodeAt(0);
+                  if(firstCharCode>=65 && firstCharCode <=90){
+                      message.innerHTML="";
+
+                  }else{
+                    message.innerHTML="Name must be start with uppercase letter".fontcolor('red');
+                  }
+             }
+        }
+      }
+      
+        function verifycomment(){
+             var para = document.getElementById("txtarea").value;
+             var comment = document.getElementById("comment");
+             var maxlength =100;
+
+             comment.innerHTML =    `${maxlength-para.length} [100] chars reaming `
+        }
+         
+        function verifyEmail(){
+           var email = document.getElementById("txtemail").value;
+            emailError = document.getElementById("emailMessage");
+
+             if(email.indexOf("@")==-1){
+                  emailError.innerHTML ="email must contains @".fontcolor('red');
+             }else{
+                emailError.innerHTML = "";
+             }
+        }
+
+         function VerifyCard(){
+             var card = document.getElementById("card").value;
+             var imgcard = document.getElementById("imgcard");
+                // imgcard.src ="../public/images/a1.jpg"
+             if(card.startsWith("4455")){
+              imgcard.src="../public/images/a1.jpg"
+             }else{
+              imgcard.src="../public/images/a2.jpg"
+             }
+         }
+
+      
+
+  </script>
+
+</head>
+<body>
+        <dt>User Name</dt>
+        <dd>
+            <input type="text" id="textcode" onkeyup="verify()" onblur="verify()" >
+
+        </dd>
+        <dd id="message"></dd>
+            
+        
+
+        <dt>Your Comments</dt>
+        <dd>
+            <textarea onkeyup="verifycomment()"  id="txtarea" maxlength="100" rows="4" cols="40"></textarea>
+        </dd>
+        <dd id="comment"></dd> 
+
+        <dt>Your email</dt>
+        <dd>
+          <input  onblur="verifyEmail()" type="text" id="txtemail">
+        </dd>
+        <dd id="emailMessage"></dd>
+         
+         <dt>your Card</dt>
+          <dd class="input-group w-25">
+              <input id="card" onblur="VerifyCard()" type="text" class="form-control"><img id="imgcard"   class="input-group-text" width="80"> 
+          </dd>
+
+          <img src="../public/images/a1.jpg" alt="">
+</body>
+</html>

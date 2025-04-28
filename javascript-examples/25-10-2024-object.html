@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+
+    <script>
+        
+         var iphone ={
+                title:"Apply iphone Black (128 GB)",
+                 price:568,
+                 rating:{
+                      rate:4.5,
+                      rating:23445,
+                      reviews:6533
+                    },
+                    offers:[
+                        "bank offer unlimited",
+                        "bank offer unlimited",
+                        "bank offer unlimited",
+                        "bank offer unlimited",
+                        "bank offer unlimited",
+                    ],
+
+                    image: "../public/images/a2.jpg"
+                 }
+
+            function bodyload(){
+                document.getElementById("imgProduct").src=iphone.image;
+                document.getElementById("lbltittle").innerHTML=iphone.title;
+                document.getElementById("lblRating").innerHTML= ` <span class="bg-success p-1 rounded text-white"> ${iphone.rating.rate}
+                    <span class="bi bi-star-fill"> </span> </span>
+                    <span class= " text-secondary fs-5 fw-bold mx-3" > ${iphone.rating.rating.toLocaleString('en-in')} rating & ${iphone.rating.reviews.toLocaleString('en-in')} reviews</span> `; 
+                    
+                    document.getElementById("lblPrice").innerHTML= "&#8377;"+iphone.price.toLocaleString('en-in');
+
+
+                        iphone.offers.map(function(offer){
+                        
+                            var li = document.createElement("li");
+                             li.className ="bi bi-tag-fill text-success my-2"
+                             li.innerHTML =`<span class="text-secondary ms-2">${offer}</span>`;
+                             document.getElementById("offers").appendChild(li);
+                        })
+
+                        
+            }
+        
+
+
+    </script>
+
+</head>
+<body onload="bodyload()" class="container-fluid">
+   
+      <div class="row mt-4">
+          <div class="col-3">
+             <img width="100%" id="imgProduct">
+          </div>
+          <div class="col-9">
+              <div id="lbltittle" class="fs-4">
+              </div> 
+              <div id="lblRating"></div>
+
+              <div id="lblPrice" class="fs-4 fw-bold mt-3"></div>
+                <div>   
+                    <label class="form-label fw-bold mt-4">Available offers</label> 
+                        <ul class="list-unstyled" id="offers">
+
+                        </ul>
+                </div>
+          </div>
+      </div>
+</body>
+</html>

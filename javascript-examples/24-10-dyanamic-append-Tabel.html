@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    
+    <title>Document</title>
+
+  <script>
+
+
+         var product = ["product Name" , "Samsung Tv" , "iPhone 15"];
+
+      function bodyload(){
+       
+       product.map(function(product){
+
+           });
+           
+         console.log(product[0]);
+            var body = document.querySelector("body");
+            var tabel = document.createElement("table");
+            tabel.border ="1";
+            var thead =  document.createElement("thead");
+            var tbody = document.createElement("tbody");
+
+            var tr1 =   document.createElement("tr");
+            var tr2 =   document.createElement("tr");
+            var tr3 =   document.createElement("tr");
+
+
+            var th = document.createElement("th");
+              th.innerHTML = "Product Name";
+                  tr1.appendChild(th);
+                  thead.appendChild(tr1);
+                  tabel.appendChild(thead);
+
+                   
+                var  td1 = document.createElement("td");
+                var td2 = document.createElement("td");
+                    td1.innerHTML ="Samsung TV";
+                     td2.innerHTML = "iPhone Six";
+
+
+                    tr2.appendChild(td1);
+                    tr3.appendChild(td2);
+                    
+                    tbody.appendChild(tr2);
+                    tbody.appendChild(tr3);
+      
+                    tabel.appendChild(tbody);
+
+
+                    body.appendChild(tabel);
+                 
+                    
+           
+           
+        
+
+      }
+         
+
+       var set1 = [10,20];
+       var set2 = [...set1,30,40];
+       console,log(set2);
+
+          
+                       
+  </script>
+
+
+</head>
+<body onload="bodyload()">
+    
+</body>
+</html>
+
+
+//  adiing Element in Array
+push()
+unshift()
+splic()
+
+example :  
+ Array.push("book");
+ Array.unshift("book");
+ Array.splic(1,0, "book","laptop","pad");
+
+// removing Element from arrray
+pop()
+shift()
+splice()
+
+example:
+collection.pop()  ---last one will remove
+collection.splice(index,deleteCount) -- specific remove
+collection.shift() --  first one will be remove
+slice()  ---   it extracts item between specified index.Array
+collection.slice(startindex,endindex)
+
+
+
+//  sorting Array Element
+ 
+ sort() --   its sort Ascending order  
+ reverse() ---   its sort in reverse  order [bottom to top]
+
+ collection.sort()
+ collection.reverse();
+ 
+ 
+
+ //finding Array Element
+
+  indexOf() :  it return frist Element  of occuren if 
+                       if not found return -1
+  lastindexOf() : it returns the last occurence index number of Element
+  
+  find() ------- it returns the first ocuurence matching Element base on conditon  
+  
+  filter  : it returns all matching Elements 
+
+
+
+  vvvimp :  spread operator
+
+      what is "Spread operator"
+   Ans: A spread operator is defined using "...", which can spread the elements in a collection into 
+      individual reference.
+
+      syntax:
+         var set1: [10,20];
+         var set2 :[set1,30,40];   // set2 is having 3 elements
+         var set2 : [...set1,30,40] // set2    having 4 element
+         var set2: [set1];        // 1 element

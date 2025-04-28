@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+
+   <script>
+            flag = "";
+           function ContinueClick(){
+                var userId = document.getElementById("txtid").value;
+
+                if(userId ==="amrut@gmail.com"){
+                    flag = `Login Success with your Email ${userId} -Verification code sent succesfully`;
+
+                    document.getElementById("loginContainer").style.display = "none";
+                    document.getElementById("passwordContainer").style.display = "block";
+                }else if(userId === "+919844937948"){
+                    flag = ` Login Success with your mobile ${userId} - OTP sent to your mobile`;
+                    document.getElementById("loginContainer").style.display = "none";
+                    document.getElementById("passwordContainer").style.display = "block";
+     
+                }else{
+                    document.getElementById("userError").innerHTML = `${userId} not registered`;
+                }
+           }
+
+            function loginClick(){
+                txtpass
+                var password = document.getElementById("txtpass").value;
+
+                 if(password ==="Amrut@123"){
+                    document.write(`<h2>${flag}</h2>`);
+                 }else{
+                    document.getElementById("passError").innerHTML =" Invalid Password";
+                 }
+            }
+   </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="container-fluid d-flex justify-content-center align-items-center" style="height: 100vh;">
+     
+        <div>
+            <div id="loginContainer">
+               <label for="form-label fw-bold">Your email or mobile phone number</label>
+               <div>
+                 <input type="text" name="" id="txtid" class="form-control">
+                   <div id="userError"></div>
+               </div>
+
+               
+              <div class="mt-3">
+                <button onclick="ContinueClick()"  class="btn btn-warning w-100">Continue</button>
+
+              </div>
+            </div>
+
+               <div id="passwordContainer" style="display: none;">
+                     <label class="form-label fw-bold">Your password</label>
+
+                     <div>
+                        <input type="text" id="txtpass" class="form-control">
+                        <div id="passError">
+
+                        </div>
+                     </div>
+
+                     <div class="mt-3">
+                         <button  onclick="loginClick()" class="btn btn-warning w-100">
+                                       Login
+                         </button>
+                     </div>
+               </div>
+
+
+        </div>
+     
+</body>
+</html>

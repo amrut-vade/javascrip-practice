@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    
+
+    <script>
+
+        var mfd =  new Date("2024-05-13 17:45:32.77");
+   
+        var weekdays = ["sunday", "Monday", "tuesday","Wendesaday"];
+        var months =["january","Feb","March","May","June","July","Augest"];
+   
+       //   document.write(` ${weekdays[mfd.getDay()]},
+       //       ${months[mfd.getMonth()]}
+       //   `)
+   
+           //   document.write(`${mfd.getDate()} ${months[mfd.getMonth()]} ,${weekdays[mfd.getDate()]}`)
+               // document.write(${mfd.getFull})
+               document.write(mfd.getFullYear());
+                mfd.setDate(23)
+   
+     function step1(){
+        document.getElementById("p").innerHTML="10% increased";
+       
+     }
+     function step2(){
+        document.getElementById("p").innerHTML="30% increased";
+       
+     }
+     function step3(){
+        document.getElementById("p").innerHTML="70% increased";
+        
+     }
+     function step4(){
+        document.getElementById("p").innerHTML="100% increased";
+        
+     }
+
+     var s3;
+     function increase(){
+          setTimeout(step1, 2000)
+         setTimeout(step2, 4000)
+         s3=setTimeout(step3, 6000)
+         setTimeout(step4, 8000)
+         
+     }
+
+      
+     function cancelClick(){
+           clearTimeout(s3);
+     }
+
+
+       function clock(){
+         var now = new Date();
+         document.getElementById("p1").innerHTML=now.toLocaleTimeString();
+       }
+
+       var timer;
+     function bodyload(){
+       timer = setInterval(clock,1000);
+     }
+         
+     function PauseClick(){
+         clearInterval(timer);
+     }
+
+     function ResumClick(){
+         timer = setInterval(Clock,1000)
+     }
+     </script>
+</head>
+<body onload="bodyload()">
+
+    <div>
+        Volume<button onclick="increase()">+</button>
+    </div>
+       <button onclick="cancelClick()">cancelClick</button>
+      <p id="p" align="center"></p>
+      <p id="p1" align="center"></p>
+      <div align="center">
+            <button onclick="PauseClick()">Pause</button>
+            <button onclick="ResumClick()">Resume</button>
+      </div>
+</body>
+</html>

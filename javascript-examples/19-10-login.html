@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        function login(){
+           var username = document.getElementById("txtName").value;
+           var password = document.getElementById("txtPwd").value;
+           var para = document.querySelector("p")
+            
+            //  if(username === "john_nit"  && password==="Amrut@123"){
+            //     document.write("login Success..");
+            //  }else{
+            //      para.innerHTML = "InValid "
+            //  }
+             if(username =="Amrut"){
+                 if(password=="Amrut@123"){
+                    para.innerHTML = " login SuccessFully";
+                 }else{
+                    para.innerHTML = " Invalid password"
+                 }
+             }else{
+                para.innerHTML = "invalid UserName";
+             }
+            
+
+        }
+
+
+    </script>
+
+</head>
+<body>
+    
+      <dl>
+        <dt>User Name</dt>
+        <dd>
+            <input type="text" id="txtName">
+        </dd>
+        <dt>Password</dt>
+        <dd>
+            <input type="password" id="txtPwd">
+        </dd>
+      </dl>
+
+      <button onclick="login()" >Login</button>
+      <p></p>
+</body>
+</html>

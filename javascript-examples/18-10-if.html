@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+       <script>
+           function selectRamSize(){
+            var RamSize = document.getElementById("RamSize").value;
+             var graphic =document.getElementById("graphic");
+              if(RamSize >=6){
+                graphic.disabled=false;
+                
+              }
+           }
+
+           function selectgraph(){
+            var graphic =document.getElementById("graphic").value;
+              if(graphic !==""){
+                document.getElementById("btn").disabled =false;
+              }
+           }
+       </script>
+</head>
+<body>
+    
+
+        <fieldset>
+             <legend style="text-align: center;">Install Game</legend>
+
+             <dl>
+                <dt>Select your RAM Size</dt>
+                <dd>
+                    <select onchange="selectRamSize()" id="RamSize">
+                        <option value="">RamSize</option>
+                        <option value="4">4</option>
+                        <option value="6">6</option>
+                        <option value="8">8</option>
+                    </select>
+                </dd>
+                <dt>Select your RAM Size</dt>
+                <dd>
+                    <select disabled  onchange="selectgraph()" id="graphic">
+                        <option value="">Graphic</option>
+                        <option value="intel">intel</option>
+                        <option value="sam">sam</option>
+                        <option value="not awaillable">not awaillable</option>
+                    </select>
+                </dd>
+             </dl>
+               <button id="btn" disabled>Submit</button>
+        </fieldset>
+</body>
+</html>

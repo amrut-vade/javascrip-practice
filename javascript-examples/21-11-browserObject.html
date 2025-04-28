@@ -1,0 +1,56 @@
+<script>
+
+     if (location.protocol === "http :") {
+
+
+
+            document.write(`
+       your ip : ${location.host} <br>
+       Port :  ${location.port} <br>
+        href :  ${location.href} <br>
+        query : ${location.search} <br>
+    `);
+        }else{
+            document.write("location Details can be viewed on server");
+        }
+
+
+
+    // document.write(`
+    //    your ip : ${location.host} <br>
+    //    Port :  ${location.port} <br>
+    //     href :  ${location.href} <br>
+    //     query : ${location.search} <br>
+    // `);
+
+             // to know the position
+
+    //   navigator.geolocation.getCurrentPosition(position=>{
+    //         document.write(`
+    //            latitude :${position.coords.latitude}<br>
+    //            longitude :${position.coords.longitude}  
+    //         `);
+
+    //   })
+
+
+
+             // plugins
+       for(var item of navigator.plugins){
+          document.write(item.name + "<br>");
+       }
+        if(navigator.plugins['PDF Viewer']){
+            document.write("you can watch PDF files ")
+        }else{
+            document.write("plase install PDF plugin")
+            location.search = "https:/www.adobe.com/downloads";
+        }
+
+
+        //   mime type of plugins
+
+          for(var item of navigator.mimeTypes){
+            document.write(item.type + "<br>");
+          }
+
+</script>

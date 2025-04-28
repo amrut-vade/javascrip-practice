@@ -1,0 +1,32 @@
+<script>
+
+      function Addition(a,b){
+        return a+b;
+      }
+
+       function Print(){
+         document.write("Addition=" +Addition(40,20));
+       }
+       Print();
+
+       // function returning function
+       function Products(){
+            return [
+              {Name:"TV", Price:345555},
+              {Name:"Mobile",Price:455}
+            ];
+       }
+       Products().map(function(Products){
+          document.write(`${Products.Name + "<br>"}`);
+       });
+
+     // function returning function
+
+           function Hello(){
+             return function(title){
+               document.write(`hello | ${title}`);
+             }
+           }
+           Hello()("Javascript");
+
+</script>

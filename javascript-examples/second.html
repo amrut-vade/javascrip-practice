@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script>
+        //   function load(){
+        //     alert((1+2) +"Deleted Successfully...")
+        //   } 
+
+        function load(){
+             flag = confirm((1+2) +"Deleted Successfully...");
+
+               if(flag==true){
+                //  alert("deleted successufully");
+
+                document.write("<h2>deleted Successfully..</h2> <a href='second.html'>  back</a>")
+               }else{
+                document.getElementById("msg").textContent="Deleted Succcesfully";
+                document.querySelector("p").innerText="Deleted Successfully";
+                document.querySelector("h2").innerHTML="<P>Deleted successfully</p>";
+                document.querySelector("h3").outerHTML="<P>Deleted successfully</p>";
+
+               }
+           } 
+               
+    </script>
+</head>
+<body>
+     <button onclick="load()" id="btn">Delete</button>
+      <p></p>
+       <h2></h2>
+       <h3></h3>
+     <div id="msg" style="position: absolute; right: 50px; top: 50px;"></div>
+</body>
+</html>

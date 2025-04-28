@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    
+
+ <script>
+     function VerifyCapse(e){
+        var error = document.getElementById("eorror");
+        if(e.keyCode>=65 && e.keyCode<=90){
+            error.style.display ="block";
+
+        }else{
+            error.style.display ="none";
+        }
+     }
+
+ </script>
+
+
+
+
+
+</head>
+<body>
+     <dl>
+        <dt>Password</dt>
+        <dd><input onkeypress="VerifyCapse(event)" type="password" id="txtPwd"></dd>
+     </dl> 
+     <dd id="eorror"  style="color:goldenrod; display:none;">
+        <span class="bi bi-exclamation-triangle"></span>
+        <span>Warning : CAP On</span>
+     </dd>
+
+
+</body>
+</html>
